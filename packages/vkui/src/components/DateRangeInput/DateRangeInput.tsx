@@ -2,13 +2,14 @@ import * as React from 'react';
 import { format, isMatch, parse, isAfter } from '../../lib/date';
 import { Icon16Clear, Icon20CalendarOutline } from '@vkontakte/icons';
 import { CalendarRange, CalendarRangeProps } from '../CalendarRange/CalendarRange';
-import { Popper, Placement } from '../Popper/Popper';
+import { Popper } from '../Popper/Popper';
 import { IconButton } from '../IconButton/IconButton';
 import { HasRootRef } from '../../types';
+import type { PlacementWithAuto } from '../../lib/floating';
 import { useDateInput } from '../../hooks/useDateInput';
 import { useAdaptivity } from '../../hooks/useAdaptivity';
+import { useExternRef } from '../../hooks/useExternRef';
 import { classNames } from '@vkontakte/vkjs';
-import { multiRef } from '../../lib/utils';
 import { FormField, FormFieldProps } from '../FormField/FormField';
 import { InputLike } from '../InputLike/InputLike';
 import { InputLikeDivider } from '../InputLike/InputLikeDivider';
@@ -38,7 +39,7 @@ export interface DateRangeInputProps
     >,
     HasRootRef<HTMLDivElement>,
     FormFieldProps {
-  calendarPlacement?: Placement;
+  calendarPlacement?: PlacementWithAuto;
   closeOnChange?: boolean;
   clearFieldAriaLabel?: string;
   showCalendarAriaLabel?: string;
@@ -229,7 +230,7 @@ export const DateRangeInput = ({
         getSizeYClassName(styles['DateRangeInput'], sizeY),
         className,
       )}
-      getRootRef={multiRef(rootRef, getRootRef)}
+      getRootRef={useExternRef(rootRef, getRootRef)}
       after={
         value ? (
           <IconButton hoverMode="opacity" aria-label={clearFieldAriaLabel} onClick={clear}>
