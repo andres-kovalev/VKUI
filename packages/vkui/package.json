@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.20.7",
-    "@floating-ui/react": "0.18.0",
+    "@floating-ui/react-dom": "1.2.1",
     "@vkontakte/vkjs": "0.31.0",
     "dayjs": "1.11.7",
     "mitt": "3.0.0"

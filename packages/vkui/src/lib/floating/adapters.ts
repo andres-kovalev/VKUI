@@ -3,7 +3,7 @@ import {
   type FloatingElement,
   type AutoUpdateOptions,
   autoUpdate as autoUpdateLib,
-} from '@floating-ui/react';
+} from '@floating-ui/react-dom';
 
 const defaultOptions = {
   ancestorScroll: true,
